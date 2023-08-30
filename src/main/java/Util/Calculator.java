@@ -1,4 +1,4 @@
-package Util;
+package main.java.Util;
 
 /**
  * Utility class that can do calcs for you.

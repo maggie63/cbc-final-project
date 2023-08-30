@@ -1,6 +1,6 @@
-package Simulation;
-
-import Util.Pair;
+package main.java.Simulation;
+import java.util.ArrayList;
+import main.java.Util.Pair;
 
 /**
  * The immune cell! It kills cancer, and has a chance to attack multiple cancer cells per turn!
@@ -14,7 +14,7 @@ public class ImmuneCell extends Cell{
      * @param coords
      */
     public ImmuneCell(Pair coords){
-        super(3, x, y, 4);
+        super(3, 4, coords);
     }
 
     @Override

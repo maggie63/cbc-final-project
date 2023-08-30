@@ -1,5 +1,6 @@
-package Simulation;
-
+package main.java.Simulation;
+import java.util.ArrayList;
+import main.java.Util.Pair;
 
 /**
  *This is a cancer cell. It is the most complex cell as it can attack tissue or immune cells, or grow into a dead cell.
@@ -15,8 +16,9 @@ package Simulation;
  */
 
 public class CancerCell extends Cell{
+
     public CancerCell(Pair coords) {
-        super(1, x, y, 3);
+        super(1, 3, coords);
     }
     @Override
     public void interactNeighbors(ArrayList<Cell> neighbors) {

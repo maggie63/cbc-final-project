@@ -1,7 +1,5 @@
-package Simulation;
-
-
-import Util.Pair;
+package main.java.Simulation;
+import main.java.Util.Pair;
 
 /**
  * This cell is dead and does nothing
@@ -14,7 +12,7 @@ public class DeadCell extends Cell{
      * @param coords
      */
     public DeadCell(Pair coords){
-        super(0, x, y, 0);
+        super(0, 0, coords);
     }
 
 }

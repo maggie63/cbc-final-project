@@ -1,9 +1,9 @@
-package Simulation;
+package main.java.Simulation;
 
 import java.util.ArrayList;
 
-import Util.Calculator;
-import Util.Pair;
+import main.java.Util.Calculator;
+import main.java.Util.Pair;
 
 /**
  * This little bugger handles the creation of the cells on the board and the running of

@@ -6,9 +6,9 @@
  *
  */
 
-package Rendering;
+package main.java.Rendering;
 
-import Util.Pair;
+import main.java.Util.Pair;
 
 import java.awt.Component;
 import java.awt.Color;

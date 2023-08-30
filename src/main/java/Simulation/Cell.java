@@ -1,5 +1,8 @@
-package Simulation;
-
+package main.java.Simulation;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import main.java.Util.Pair;
 
 /**
  * The default, boring cell.
@@ -14,33 +17,29 @@ public class Cell {
      */
 
     private int strength;
-    private int x;
-    private int y;
     private int id;
-
+    private Pair coords;
     private HashMap<String, Double> chemicalConcentrations;
     private HashSet<String> signalMolecules;
     private ArrayList<Cell> neighbours;
 
     public Cell() {
-        this(0, 0, 0, 0, new HashMap<>(), new HashSet<>(), new ArrayList<>());
+        this(0, 0, new Pair(), new HashMap<>(), new HashSet<>(), new ArrayList<>());
     }
 
-    public Cell(int strength, int x, int y, int id, HashMap<String, Double> chemicalConcentrations, HashSet<String> signalMolecules, ArrayList<Cell> neighbours) {
+    public Cell(int strength, int id, Pair coords, HashMap<String, Double> chemicalConcentrations, HashSet<String> signalMolecules, ArrayList<Cell> neighbours) {
         setStrength(strength);
-        setX(x);
-        setY(y);
         setID(id);
+        this.coords = coords;
         this.chemicalConcentrations = chemicalConcentrations;
         this.signalMolecules = signalMolecules;
         this.neighbours = neighbours;
     }
 
-    public Cell(int strength, int x, int y, int id) {
+    public Cell(int strength, int id, Pair coords) {
         setStrength(strength);
-        setX(x);
-        setY(y);
         setID(id);
+        this.coords = coords;
     }
 
     public void setStrength(int strength) {
@@ -53,30 +52,6 @@ public class Cell {
 
     public int getStrength() {
         return this.strength;
-    }
-
-    public void setX(int x) {
-        if (x > 0) {
-            this.x = x;
-        } else {
-            this.x = 0;
-        }
-    }
-
-    public int getX() {
-        return this.x;
-    }
-
-    public void setY(int y) {
-        if (y > 0) {
-            this.y = y;
-        } else {
-            this.y = 0;
-        }
-    }
-
-    public int getY() {
-        return this.y;
     }
 
     public void setID(int id) {

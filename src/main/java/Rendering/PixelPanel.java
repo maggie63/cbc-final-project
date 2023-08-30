@@ -6,10 +6,10 @@
  *
  */
 
-package Rendering;
+package main.java.Rendering;
 
-import Util.Calculator;
-import Util.Pair;
+import main.java.Util.Calculator;
+import main.java.Util.Pair;
 
 import javax.swing.*;
 import java.awt.*;

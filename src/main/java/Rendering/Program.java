@@ -6,11 +6,10 @@
  *
  */
 
-package Rendering;
-
-import Simulation.Logic;
-import Util.Calculator;
-import Util.Pair;
+package main.java.Rendering;
+import main.java.Simulation.Logic;
+import main.java.Util.Calculator;
+import main.java.Util.Pair;
 
 import javax.swing.*;
 

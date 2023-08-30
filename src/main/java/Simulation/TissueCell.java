@@ -1,7 +1,6 @@
-package Simulation;
-
-
-import Util.Pair;
+package main.java.Simulation;
+import java.util.ArrayList;
+import main.java.Util.Pair;
 
 /**
  * A tissue cell. It wants to grow, but not as much as cancer. Has a chance to turn a dead
@@ -16,7 +15,7 @@ public class TissueCell extends Cell{
      * @param coords
      */
     public TissueCell(Pair coords){
-        super(0, x, y, 1);
+        super(0, 1, coords);
     }
     @Override
     public void interactNeighbors(ArrayList<Cell> neighbors) {
