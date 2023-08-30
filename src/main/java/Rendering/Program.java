@@ -42,7 +42,7 @@ public class Program {
     }
 
     /**
-     * Initiliazes stuff rendiering an each pixel on the screen. You can modify
+     * Initiliazes stuff rendering an each pixel on the screen. You can modify
      * the width and height if you want, but this will increase sim time!
      */
     private void onUserStart(){

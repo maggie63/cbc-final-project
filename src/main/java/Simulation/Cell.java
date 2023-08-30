@@ -67,6 +67,7 @@ public class Cell {
     }
 
     public void interactNeighbors(ArrayList<Cell> neighbors) {
+
     }
 
 }
