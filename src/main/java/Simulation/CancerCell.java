@@ -15,5 +15,10 @@ package Simulation;
  */
 
 public class CancerCell extends Cell{
-
+    public CancerCell(Pair coords) {
+        super(1, x, y, 3);
+    }
+    @Override
+    public void interactNeighbors(ArrayList<Cell> neighbors) {
+    }
 }

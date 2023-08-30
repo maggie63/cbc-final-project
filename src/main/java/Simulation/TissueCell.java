@@ -16,7 +16,10 @@ public class TissueCell extends Cell{
      * @param coords
      */
     public TissueCell(Pair coords){
-
+        super(0, x, y, 1);
+    }
+    @Override
+    public void interactNeighbors(ArrayList<Cell> neighbors) {
     }
 
 }

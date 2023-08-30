@@ -14,7 +14,11 @@ public class ImmuneCell extends Cell{
      * @param coords
      */
     public ImmuneCell(Pair coords){
+        super(3, x, y, 4);
+    }
 
+    @Override
+    public void interactNeighbors(ArrayList<Cell> neighbors) {
     }
 
 }

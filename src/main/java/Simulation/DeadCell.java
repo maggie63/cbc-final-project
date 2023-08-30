@@ -14,7 +14,7 @@ public class DeadCell extends Cell{
      * @param coords
      */
     public DeadCell(Pair coords){
-
+        super(0, x, y, 0);
     }
 
 }
