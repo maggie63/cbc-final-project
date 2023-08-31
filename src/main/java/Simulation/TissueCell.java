@@ -1,7 +1,6 @@
 package main.java.Simulation;
 import java.util.ArrayList;
 import main.java.Util.Pair;
-import static main.java.Util.Calculator.indexFromCoord;
 import static main.java.Util.Calculator.coordFromIndex;
 
 
