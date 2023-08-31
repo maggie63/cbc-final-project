@@ -18,8 +18,7 @@ public class Cell {
      * @return
      */
 
-    private int strength;
-    private int id;
+    private int strength, id, x, y;
     public Pair coords;
     private HashMap<String, Double> chemicalConcentrations;
     private HashSet<String> signalMolecules;
@@ -57,12 +56,37 @@ public class Cell {
         return this.strength;
     }
 
+    public void setX(int x) {
+        if(x > 0){
+            this.x = x;
+        } else {
+            this.x = 0;
+        }
+    }
+    public int getX() {
+        return this.x;
+    }
+    public void setY(int y) {
+        if(y > 0){
+            this.y = y;
+        } else {
+            this.y = 0;
+        }
+    }
+    public int getY() {
+        return this.y;
+    }
     public void setID(int id) {
         if (id > 0) {
             this.id = id;
         } else {
             this.id = 0;
         }
+    }
+    public void setCoords(){
+        setX(x);
+        setY(y);
+        this.coords = new Pair (x, y);
     }
 
     public int getID() {
@@ -71,12 +95,11 @@ public class Cell {
 
     public void interactNeighbors(ArrayList<Cell> neighbors) {
         int index, ID;
-        Pair neighborCoords;
+        Pair neighborCoords, cellCoords;
         deadCells = new ArrayList<>();
         immuneCells = new ArrayList<>();
         tissueCells = new ArrayList<>();
         cancerCells = new ArrayList<>();
-
 
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
@@ -85,6 +108,8 @@ public class Cell {
 
                 neighborCoords = new Pair(x + coords.getX(), y + coords.getY());
                 index = indexFromCoord(neighborCoords);
+                if(index < 0 || index > 10000) {continue;}
+
                 ID = neighbors.get(index).getID();
 
                 if(ID == 0) {

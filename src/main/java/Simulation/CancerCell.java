@@ -24,27 +24,33 @@ public class CancerCell extends Cell{
     }
     @Override
     public void interactNeighbors(ArrayList<Cell> neighbors) {
-        int tissueCount = tissueCells.size();
-        int immuneCount = immuneCells.size();
-
         super.interactNeighbors(neighbors);
+        int tissueCount = 0;
+        int immuneCount = 0;
+        int deadCount = 0;
 
-        if (!deadCells.isEmpty()) {
-            for (int index : deadCells) {
-                neighbors.set(index, new CancerCell(coordFromIndex(index)));
+        if(tissueCells != null){tissueCount = tissueCells.size();}
+        if(immuneCells != null){immuneCount = immuneCells.size();}
+        if(deadCells != null){deadCount = deadCells.size();}
+
+        if (deadCount > 0) {
+            for (int i : deadCells) {
+                neighbors.set(i, new CancerCell(coordFromIndex(i)));
             }
         }
-        else if(tissueCount > immuneCount && tissueCount > 1) {
-            int i = (int) (Math.random() * tissueCells.size());
-            int index = tissueCells.get(i);
-            neighbors.set(index, new DeadCell(coordFromIndex(index)));
+        else if(tissueCount > immuneCount && tissueCount >= 1) {
+            int i = tissueCells.get((int) (Math.random() * tissueCells.size()));
+            neighbors.set(i, new DeadCell(coordFromIndex(i)));
         }
         else {
             int strength;
-            for (int index : immuneCells) {
-                strength = neighbors.get(index).getStrength();
-                strength = strength - 1;
-                neighbors.get(index).setStrength(strength);
+            for (int i : immuneCells) {
+                strength = neighbors.get(i).getStrength();
+                while(strength != 0) {
+                    strength = strength - 1;
+                    neighbors.get(i).setStrength(strength);
+                }
+                neighbors.set(i, new DeadCell(coordFromIndex(i)));
             }
         }
     }

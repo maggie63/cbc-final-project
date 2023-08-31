@@ -24,20 +24,22 @@ public class ImmuneCell extends Cell {
     public void interactNeighbors(ArrayList<Cell> neighbors) {
         super.interactNeighbors(neighbors);
 
-        if (!cancerCells.isEmpty()) {
-            int i = (int) (Math.random() * cancerCells.size());
-            int index = cancerCells.get(i);
-            neighbors.set(index, new DeadCell(coordFromIndex(index)));
+        if (cancerCells != null && !cancerCells.isEmpty()) {
+            int index = (int) (Math.random() * cancerCells.size());
+            int i = cancerCells.get(index);
+            neighbors.set(i, new DeadCell(coordFromIndex(i)));
+            cancerCells.remove(index);
 
-//            double chance = 0;
-//            for (int count = 0; count < cancerCells.size(); count++) {
-//                i = (int) (Math.random() * cancerCells.size());
-//                index = cancerCells.get(i);
-//                chance = Math.random() * 100;
-//                if (chance < 50) {
-//                    neighbors.set(index, new DeadCell(coordFromIndex(index)));
-//                } else continue;
-//            }
+            double chance = 0;
+            for (int count = 0; count < cancerCells.size(); count++) {
+                index = (int) (Math.random() * cancerCells.size());
+                i = cancerCells.get(index);
+                chance = Math.random() * 100;
+                if (chance < 50) {
+                    neighbors.set(i, new DeadCell(coordFromIndex(i)));
+                    cancerCells.remove(index);
+                }
+            }
         }
     }
 }

@@ -22,8 +22,8 @@ public class Pair {
      * @param y y pos
      */
     public Pair(int x, int y){
-        setX(x);
-        setY(y);
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -37,13 +37,6 @@ public class Pair {
      * Gives x coord
      * @return x
      */
-    public void setX(int x) {
-        if (x > 0) {
-            this.x = x;
-        } else {
-            this.x = 0;
-        }
-    }
 
     public int getX() {return x;}
 
@@ -51,13 +44,6 @@ public class Pair {
      * give y coord
      * @return y
      */
-    public void setY(int y) {
-        if (y > 0) {
-            this.y = y;
-        } else {
-            this.y = 0;
-        }
-    }
 
     public int getY() {
         return y;

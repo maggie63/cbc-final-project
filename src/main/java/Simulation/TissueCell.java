@@ -24,10 +24,12 @@ public class TissueCell extends Cell{
         double chance = 0;
         super.interactNeighbors(neighbors);
 
-        for (int index : deadCells) {
-            chance = Math.random() * 100;
-            if(chance < 70) {
-                neighbors.set(index, new TissueCell(coordFromIndex(index)));
+        if (!deadCells.isEmpty()) {
+            for (int i : deadCells) {
+                chance = Math.random() * 100;
+                if (chance < 70) {
+                    neighbors.set(i, new TissueCell(coordFromIndex(i)));
+                }
             }
         }
     }
