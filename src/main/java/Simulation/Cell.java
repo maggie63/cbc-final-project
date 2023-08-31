@@ -1,5 +1,4 @@
 package main.java.Simulation;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -25,7 +24,7 @@ public class Cell {
     private HashMap<String, Double> chemicalConcentrations;
     private HashSet<String> signalMolecules;
     private ArrayList<Cell> neighbours;
-    protected ArrayList<Integer> DeadCells, ImmuneCells, TissueCells, CancerCells;
+    protected ArrayList<Integer> deadCells, immuneCells, tissueCells, cancerCells;
 
     public Cell() {
         this(0, 0, new Pair(), new HashMap<>(), new HashSet<>(), new ArrayList<>());
@@ -73,10 +72,10 @@ public class Cell {
     public void interactNeighbors(ArrayList<Cell> neighbors) {
         int index, ID;
         Pair neighborCoords;
-        DeadCells = new ArrayList<>();
-        ImmuneCells = new ArrayList<>();
-        TissueCells = new ArrayList<>();
-        CancerCells = new ArrayList<>();
+        deadCells = new ArrayList<>();
+        immuneCells = new ArrayList<>();
+        tissueCells = new ArrayList<>();
+        cancerCells = new ArrayList<>();
 
 
         for (int x = -1; x <= 1; x++) {
@@ -88,10 +87,14 @@ public class Cell {
                 index = indexFromCoord(neighborCoords);
                 ID = neighbors.get(index).getID();
 
-                if(ID == 0) {DeadCells.add(index);}
-                else if(ID == 1) {TissueCells.add(index);}
-                else if(ID == 3) {CancerCells.add(index);}
-                else if(ID == 4) {ImmuneCells.add(index);}
+                if(ID == 0) {
+                    deadCells.add(index);}
+                else if(ID == 1) {
+                    tissueCells.add(index);}
+                else if(ID == 3) {
+                    cancerCells.add(index);}
+                else if(ID == 4) {
+                    immuneCells.add(index);}
             }
         }
     }

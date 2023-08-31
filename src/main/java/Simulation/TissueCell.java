@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import main.java.Util.Pair;
 import static main.java.Util.Calculator.indexFromCoord;
 import static main.java.Util.Calculator.coordFromIndex;
-import java.util.Random;
 
 
 /**
@@ -24,17 +23,13 @@ public class TissueCell extends Cell{
     @Override
     public void interactNeighbors(ArrayList<Cell> neighbors) {
         double chance = 0;
-
         super.interactNeighbors(neighbors);
-        chance = Math.random() * 100;
-        for (int index : DeadCells) {
 
-            if(chance <= 70) {
-                neighbors.remove(index);
-                neighbors.add(new TissueCell(coordFromIndex(index)));
+        for (int index : deadCells) {
+            chance = Math.random() * 100;
+            if(chance < 70) {
+                neighbors.set(index, new TissueCell(coordFromIndex(index)));
             }
         }
-
     }
-
 }

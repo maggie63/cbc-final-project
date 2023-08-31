@@ -19,6 +19,7 @@ public class ImmuneCell extends Cell{
 
     @Override
     public void interactNeighbors(ArrayList<Cell> neighbors) {
-    }
+        super.interactNeighbors(neighbors);
 
+    }
 }
