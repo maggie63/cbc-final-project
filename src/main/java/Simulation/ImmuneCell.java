@@ -30,7 +30,7 @@ public class ImmuneCell extends Cell {
             neighbors.set(i, new DeadCell(coordFromIndex(i)));
             cancerCells.remove(index);
 
-            double chance = 0;
+            double chance;
             for (int count = 0; count < cancerCells.size(); count++) {
                 index = (int) (Math.random() * cancerCells.size());
                 i = cancerCells.get(index);

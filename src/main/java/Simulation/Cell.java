@@ -19,7 +19,7 @@ public class Cell {
      */
 
     private int strength, id, x, y;
-    public Pair coords;
+    private Pair coords;
     private HashMap<String, Double> chemicalConcentrations;
     private HashSet<String> signalMolecules;
     private ArrayList<Cell> neighbours;
@@ -83,12 +83,6 @@ public class Cell {
             this.id = 0;
         }
     }
-    public void setCoords(){
-        setX(x);
-        setY(y);
-        this.coords = new Pair (x, y);
-    }
-
     public int getID() {
         return this.id;
     }
