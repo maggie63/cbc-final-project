@@ -36,7 +36,7 @@ public class Calculator {
         return width*y + x;
     }
 
-    /**
+    /**›
      * Same as the other but the coord is a Pair
      * @param coord coords
      * @return index in an array that corresponds to the coords

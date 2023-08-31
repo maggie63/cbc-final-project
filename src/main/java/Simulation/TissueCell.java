@@ -23,22 +23,18 @@ public class TissueCell extends Cell{
     }
     @Override
     public void interactNeighbors(ArrayList<Cell> neighbors) {
-        int index, ID, chance;
-        Pair Coords;
-        Random random = new Random();
+        double chance = 0;
 
-        for (int x = -1; x < 2; x++) {
-            for(int y = -1; y <2; y++){
-                Coords = new Pair(x, y);
-                index = indexFromCoord(Coords);
-                ID = neighbors.get(index).getID();
+        super.interactNeighbors(neighbors);
+        chance = Math.random() * 100;
+        for (int index : DeadCells) {
 
-                if(ID == 0){
-                    chance = random.nextInt(11);
-                    if(chance <= 7) {neighbors.add(new TissueCell(coordFromIndex(index)));}
-                }
+            if(chance <= 70) {
+                neighbors.remove(index);
+                neighbors.add(new TissueCell(coordFromIndex(index)));
             }
         }
+
     }
 
 }
